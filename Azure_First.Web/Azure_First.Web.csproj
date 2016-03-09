@@ -222,10 +222,6 @@
     <Compile Include="Validator\AgeRangeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Azure_First.mdf" />
-    <Content Include="App_Data\Azure_First_log.ldf">
-      <DependentUpon>Azure_First.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-1.1.0.css" />
     <Content Include="Content\bootstrap-1.1.0.min.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
@@ -286,6 +282,7 @@
     <Content Include="Views\Dashboard\EditUserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Images\" />
