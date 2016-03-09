@@ -1,0 +1,5 @@
+.vs/*
+WebEssentials2015-Settings.json
+Azure_First.Web/bin/*
+Azure_First.Web/obj/*
+packages/*

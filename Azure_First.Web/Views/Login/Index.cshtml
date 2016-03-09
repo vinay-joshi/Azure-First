@@ -1,0 +1,47 @@
+﻿@model Azure_First.Web.Models.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login Here</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/modules/login.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin" }))
+        {
+            <h2 class="form-signin-heading">Who you are ?</h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", id = "inputEmail", placeholder = "Email address" })
+            @*<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>*@
+            <label for="inputPassword" class="sr-only">Password</label>
+            @Html.PasswordFor(m => m.Passwrod, new { @class = "form-control", id = "inputPassword", placeholder = "Password" })
+            @*<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>*@
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger" id="login-alert" role="alert" style="margin-top:20px;">
+                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                    Oh snap! @Html.ValidationMessage("Error")
+                </div>
+            }
+        }
+
+        <form class="form-signin" method="post" action="/Login"></form>
+    </div> <!-- /container -->
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Azure_First.Web.Models.RandomProfileViewModel>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Dashboard.cshtml";
+}
+
+<h2 class="page-header">Users</h2>
+<div class="container">
+    <div class="row col-md-6">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>MemberName</th>
+                        <th>Looking For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var profile in Model.ToList())
+                    {
+                        <tr>
+                            <td>
+                                <img width="40" height="40" src="@profile.PhotoUrl" class="img-circle img-responsive"
+                                     alt="@profile.MemberName" />
+                            </td>
+                            <td>@Html.ActionLink(@profile.MemberName == null ? "Member" : @profile.MemberName, "UserProfile", new {name = @profile.MemberName , isMember= true }) </td>
+                            <td>@profile.LookingFor</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/module/dashboard-users.js"></script>
+}
